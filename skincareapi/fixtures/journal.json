@@ -1,0 +1,53 @@
+[
+    {
+        "model": "skincareapi.journal",
+        "pk": 1,
+        "fields": {
+            "user":1,
+            "concern":1,
+            "description":"entry 1",
+            "date":"2018-04-12"
+        }
+    },
+    {
+        "model": "skincareapi.journal",
+        "pk": 2,
+        "fields": {
+            "user":1,
+            "concern":2,
+            "description":"entry 2",
+            "date":"2019-02-17"
+        }
+    },
+    {
+        "model": "skincareapi.journal",
+        "pk": 3,
+        "fields": {
+            "user":1,
+            "concern":3,
+            "description":"entry 3",
+            "date":"2020-01-11"
+        }
+    },
+    {
+        "model": "skincareapi.journal",
+        "pk": 4,
+        "fields": {
+            "user":5,
+            "concern":4,
+            "description":"entry 4",
+            "date":"2019-04-12"
+        }
+    },
+    {
+        "model": "skincareapi.journal",
+        "pk": 5,
+        "fields": {
+            "user":5,
+            "concern":5,
+            "description":"entry 5",
+            "date":"2019-04-12"
+        }
+    }
+]
+    

@@ -1,0 +1,43 @@
+[
+    {
+        "model": "skincareapi.userconcern",
+        "pk": 1,
+        "fields": {
+            "user":1,
+            "concern":1
+        }
+    },
+    {
+        "model": "skincareapi.userconcern",
+        "pk": 2,
+        "fields": {
+            "user":1,
+            "concern":2
+        }
+    },
+    {
+        "model": "skincareapi.userconcern",
+        "pk": 3,
+        "fields": {
+            "user":1,
+            "concern":3
+        }
+    },
+    {
+        "model": "skincareapi.userconcern",
+        "pk": 4,
+        "fields": {
+            "user":5,
+            "concern":4
+        }
+    },
+    {
+        "model": "skincareapi.userconcern",
+        "pk": 5,
+        "fields": {
+            "user":5,
+            "concern":5
+        }
+    }
+]
+    

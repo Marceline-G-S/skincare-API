@@ -1,0 +1,38 @@
+[
+    {
+        "model": "skincareapi.skintype",
+        "pk": 1,
+        "fields": {
+            "skintype":"Normal"
+        }
+    },
+    {
+        "model": "skincareapi.skintype",
+        "pk": 2,
+        "fields": {
+            "skintype":"Oily"
+        }
+    },
+    {
+        "model": "skincareapi.skintype",
+        "pk": 3,
+        "fields": {
+            "skintype":"Dry"
+        }
+    },
+    {
+        "model": "skincareapi.skintype",
+        "pk": 4,
+        "fields": {
+            "skintype":"Normal-Oily"
+        }
+    },
+    {
+        "model": "skincareapi.skintype",
+        "pk": 5,
+        "fields": {
+            "skintype":"Normal-Dry"
+        }
+    }
+]
+    

@@ -1,0 +1,43 @@
+[
+    {
+        "model": "skincareapi.concern",
+        "pk": 1,
+        "fields": {
+            "concern":"Dryness",
+            "description":"Dry skin, possibly itchy, flaky, or ashy"
+        }
+    },
+    {
+        "model": "skincareapi.concern",
+        "pk": 2,
+        "fields": {
+            "concern":"Stretch marks",
+            "description":"Stretch marks. You know what they are."
+        }
+    },
+    {
+        "model": "skincareapi.concern",
+        "pk": 3,
+        "fields": {
+            "concern":"Scars.",
+            "description":"Scars. You know what they are."
+        }
+    },
+    {
+        "model": "skincareapi.concern",
+        "pk": 4,
+        "fields": {
+            "concern":"keratosis pilaris",
+            "description":"Sometimes called chicken skin or raspberry skin. This conditions causes small red bumps, commonly on the upper arms and thighs."
+        }
+    },
+    {
+        "model": "skincareapi.concern",
+        "pk": 5,
+        "fields": {
+            "concern":"Acne",
+            "description":"Acne is a common skin condition that happens when hair follicles under the skin become clogged. Sebum—oil that helps keep skin from drying out—and dead skin cells plug the pores, which leads to outbreaks of lesions, commonly called pimples or zits."
+        }
+    }
+]
+    
