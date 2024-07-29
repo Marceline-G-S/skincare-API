@@ -1,6 +1,14 @@
 [
     {
         "model": "skincareapi.customer",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "skintype":1
+        }
+    },
+    {
+        "model": "skincareapi.customer",
         "pk": 4,
         "fields": {
             "user": 5,
