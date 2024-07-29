@@ -8,19 +8,19 @@ from skincareapi.serializers import CustomerSerializer
 class CustomersViewSet(ViewSet):
 
     def update(self, request, pk=None):
+        """
+        @api {PUT} /customers/[anynumber]
+        In body : 
+        skintype : [id of concern here]
+        HTTP/1.1 204 No Content
+        """
         try:
             customer = Customer.objects.get(user=request.auth.user)
             # extract skinytpe ID from request data
             skintype_id = request.data["skintype"]
-            username = request.data["username"]
-            password = request.data["password"]
-
-            skintype = Skintype.objects.get(pk=skintype_id)
 
             # assign fetched skin type to the customer's skin type field
-            customer.skintype = skintype
-            customer.user.username = username
-            customer.user.password = password
+            customer.skintype = Skintype.objects.get(id=skintype_id)
 
             customer.save()
             return Response({}, status=status.HTTP_204_NO_CONTENT)

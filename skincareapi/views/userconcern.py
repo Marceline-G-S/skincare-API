@@ -9,10 +9,14 @@ from django.contrib.auth.models import User
 class UserConcernsViewSet(ViewSet):
     
     def list(self, request):
+        """
+        @api {GET} /userconcerns
+        HTTP/1.1 204 No Content
+        """
         try:
             userConcerns = UserConcern.objects.filter(user=request.auth.user)
             serializer = UserConcernSerializer(userConcerns, many=True, context={"request": request})
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_302_FOUND)
         except UserConcern.DoesNotExist as ex:
             return Response(
                 {
@@ -24,18 +28,24 @@ class UserConcernsViewSet(ViewSet):
             return HttpResponseServerError(ex)
 
     def create(self, request):
+        """
+        @api {POST} /userconcerns
+        In body : concern: [id of concern]
+        HTTP/1.1 204 No Content
+        """
         current_user = Customer.objects.get(user=request.auth.user)
 
         try:
             concern = request.data["concern"]
             UserConcern.objects.get(user=current_user.user, concern=concern)
+            return Response({}, status=status.HTTP_302_FOUND)
         except UserConcern.DoesNotExist as ex:
             new_user_concern = UserConcern()
             new_user_concern.user = current_user.user
             new_user_concern.concern = Concern.objects.get(id=concern)
             new_user_concern.save()
 
-        return Response({}, status=status.HTTP_204_NO_CONTENT)
+        return Response({}, status=status.HTTP_201_CREATED)
     
     def destroy(self, request, pk=None):
         """
