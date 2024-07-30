@@ -33,6 +33,13 @@
         "fields": {
             "skintype":"Normal-Dry"
         }
+    },
+    {
+        "model": "skincareapi.skintype",
+        "pk": 6,
+        "fields": {
+            "skintype":"Not assigned"
+        }
     }
 ]
     

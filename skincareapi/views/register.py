@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 from rest_framework.authtoken.models import Token
-from skincareapi.models import Customer
+from skincareapi.models import Customer, Skintype
 
 
 @csrf_exempt
@@ -48,6 +48,15 @@ def register_user(request):
 
     Method arguments:
       request -- The full HTTP request object
+      Body : 
+    {
+        "username":"testingTesterr",
+        "email": "test@test.com",
+        "password": "88888888",
+        "first_name": "Testing",
+        "last_name": "Tester",
+        "skintype": 2
+    }
     '''
 
     # Load the JSON string of the request body into a dict
@@ -64,8 +73,7 @@ def register_user(request):
     )
 
     customer = Customer.objects.create(
-        phone_number=req_body['phone_number'],
-        address=req_body['address'],
+        skintype=Skintype.objects.get(id=6),
         user=new_user
     )
 
