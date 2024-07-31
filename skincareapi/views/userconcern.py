@@ -55,8 +55,8 @@ class UserConcernsViewSet(ViewSet):
         """
         try:
             current_user = Customer.objects.get(user=request.auth.user)
-            concern = request.data["concern"]
-            user_concern = UserConcern.objects.get(user=current_user, concern=concern)
+            current_concern = Concern.objects.get(id=request.data["concern"])
+            user_concern = UserConcern.objects.get(user=current_user.user, concern=current_concern.id)
             user_concern.delete()
             return Response({}, status=status.HTTP_204_NO_CONTENT)
         except Exception as ex:
