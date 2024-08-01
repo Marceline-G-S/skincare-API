@@ -8,6 +8,19 @@ from django.contrib.auth.models import User
 import datetime
 
 class JournalViewSet(ViewSet):
+
+    def retrieve(self, request, pk=None):
+        """
+        @api {GET} /journal/[journal id]
+        HTTP/1.1 200 
+        Content : return journal entry if belongs to user
+        """
+        try:
+            userJournal = Journal.objects.get(user=request.auth.user, pk=pk)
+            serializer = JournalSerializer(userJournal, context={'request': request})
+            return Response(serializer.data)
+        except Exception as ex:
+            return HttpResponseServerError(ex)
     
     def list(self, request):
         """
@@ -31,7 +44,7 @@ class JournalViewSet(ViewSet):
 
     def create(self, request):
         """
-        @api {DELETE} /journal
+        @api {POST} /journal
         In body : description : "description of journal entry",
         concern : [concern id here]
         HTTP/1.1 204 No Content
@@ -69,14 +82,12 @@ class JournalViewSet(ViewSet):
     
     def destroy(self, request, pk=None):
         """
-        @api {DELETE} /journal/[anynumber]
-        In body : id: [id journal]
+        @api {DELETE} /journal/[journal id here]
         HTTP/1.1 204 No Content
         """
         try:
             current_user = Customer.objects.get(user=request.auth.user)
-            journal_id = request.data["id"]
-            user_concern = Journal.objects.get(user=current_user.user, id=journal_id)
+            user_concern = Journal.objects.get(user=current_user.user, id=pk)
             user_concern.delete()
             return Response({}, status=status.HTTP_204_NO_CONTENT)
         except Exception as ex:
